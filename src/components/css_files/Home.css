@@ -1,0 +1,15 @@
+.search-bar {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#form {
+  border-radius: 50px;
+  color: aqua;
+}
+
+#form button {
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
