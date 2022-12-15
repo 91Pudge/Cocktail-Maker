@@ -1,15 +1,32 @@
-.search-bar {
-  display: grid;
-  justify-content: center;
-  margin-top: 100px;
-}
-
 #form {
-  border-radius: 50px;
-  color: aqua;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
 }
 
 #form button {
   background-color: antiquewhite;
   border-radius: 5px;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.cocktails {
+  background-color: aqua;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+@media (max-width: 600px) {
+  .display {
+    flex-wrap: wrap;
+  }
 }
