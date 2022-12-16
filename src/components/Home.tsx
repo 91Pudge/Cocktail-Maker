@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 interface Product {
   idDrink: number;
   strDrink: string;
+  strDrinkThumb: string;
 }
 
 const Home: React.FC = () => {
@@ -31,6 +32,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
+
       <form id="form" role="search" onSubmit={onSubmitForm}>
         <input
           type="text"
@@ -45,7 +47,11 @@ const Home: React.FC = () => {
         {cocktailData.map((data) => {
           return (
             <div className="cocktails" key={data.idDrink}>
-              {data.strDrink}
+              <h2>{data.strDrink}</h2>
+              <img src={data.strDrinkThumb} height="140" width="180" />
+              <div className="more-button">
+                <button>More</button>
+              </div>
             </div>
           );
         })}
