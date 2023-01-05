@@ -1,15 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-function App() {
-  const [cocktailData, setCocktailData] = useState([]);
-  const [userInput, setUserInput] = useState<String>("");
-  const [isLoading, setLoading] = useState(false);
+export interface User {
+  userInput?: string;
+  isLoading: boolean;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const App = (): JSX.Element => {
+  const [cocktailData, setCocktailData] = useState<[]>([]);
+  const [userInput, setUserInput] = useState<string>("");
+  const [isLoading, setLoading] = useState<boolean>(false);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
   const onSubmitForm = async (e: React.FormEvent<HTMLInputElement>) => {
@@ -69,6 +74,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;
