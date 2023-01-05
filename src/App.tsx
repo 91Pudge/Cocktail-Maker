@@ -30,6 +30,23 @@ function App() {
     }
   };
 
+  const randomCocktail = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    try {
+      const random = await fetch(
+        "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+      );
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+
+      const parseRes = await random.json();
+      setCocktailData(parseRes.drinks);
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <Router>
       <Navbar />
