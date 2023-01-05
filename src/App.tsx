@@ -3,23 +3,24 @@ import { useState, ChangeEvent } from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Props } from "./types";
 
 export interface User {
   userInput?: string;
   isLoading: boolean;
 }
 
-const App = (): JSX.Element => {
-  const [cocktailData, setCocktailData] = useState<[]>([]);
-  const [userInput, setUserInput] = useState<string>("");
+const App = () => {
+  const [cocktailData, setCocktailData] = useState<string[]>([]);
+  const [userInput, setUserInput] = useState("");
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
-  const onSubmitForm = async (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
 
+  const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       const choice = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
@@ -35,7 +36,7 @@ const App = (): JSX.Element => {
     }
   };
 
-  const randomCocktail = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const randomCocktail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const random = await fetch(
