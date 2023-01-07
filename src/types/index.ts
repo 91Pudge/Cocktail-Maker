@@ -7,6 +7,7 @@ export type Props = {
     setCocktailData: any;
     userInput: any;
     isLoading: boolean;
-    randomCocktail: (e: React.FormEvent<HTMLFormElement>) => void;
-    // data: any;
+    randomCocktail: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    data: any;
+    id: number;
 };
