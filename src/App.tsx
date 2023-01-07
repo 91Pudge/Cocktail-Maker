@@ -10,7 +10,7 @@ export interface User {
   isLoading: boolean;
 }
 
-const App = (): JSX.Element => {
+const App = () => {
   const [cocktailData, setCocktailData] = useState<[]>([]);
   const [userInput, setUserInput] = useState<string | null>("");
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -35,8 +35,9 @@ const App = (): JSX.Element => {
     }
   };
 
-  const randomCocktail = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const randomCocktail = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     try {
       const random = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/random.php"
