@@ -10,15 +10,14 @@ export interface User {
   isLoading: boolean;
 }
 
-const App = () => {
-  const [cocktailData, setCocktailData] = useState<string[]>([]);
-  const [userInput, setUserInput] = useState("");
+const App = (): JSX.Element => {
+  const [cocktailData, setCocktailData] = useState<[]>([]);
+  const [userInput, setUserInput] = useState<string | null>("");
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
-
   const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -68,6 +67,8 @@ const App = () => {
               setCocktailData={setCocktailData}
               isLoading={isLoading}
               randomCocktail={randomCocktail}
+              data={undefined}
+              id={0}
             />
           }
         ></Route>
