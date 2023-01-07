@@ -1,69 +1,50 @@
-import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import "./css_files/Home.css";
-import Navbar from "./Navbar";
+import Recipe from "./Recipe";
+import { Props } from "../types";
 
-interface Product {
-  idDrink: number;
-  strDrink: string;
-  strDrinkThumb: string;
-  onClick: () => void;
-}
-
-const Home: React.FC = () => {
-  const [cocktailData, setCocktailData] = useState<Product[]>([]);
-  const [userInput, setUserInput] = useState("");
-
-  console.log(cocktailData);
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newData = e.target.value;
-    // console.log(newData);
-    setUserInput(newData);
-  };
-  const onSubmitForm = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    try {
-      const choice = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-      );
-      const parseRes = await choice.json();
-      setCocktailData(parseRes.drinks);
-    } catch (err) {
-      console.log("error");
-    }
-  };
-
+const Home = ({
+  onSubmitForm,
+  handleChange,
+  cocktailData,
+  randomCocktail
+}: Props) => {
   return (
     <>
-      <Navbar />
-      {/* {!cocktailData && <h1></h1>} */}
       <form id="form" role="search" onSubmit={onSubmitForm}>
         <input
           onChange={(e) => handleChange(e)}
-          value={userInput}
           type="text"
           id="search"
-          //   name="q"
-          placeholder="Search..."
+          className="search-bar"
+          placeholder="Search for any cocktail.."
           aria-label="Search through site content"
+          required
         />
         <button>Search</button>
       </form>
+      <button id="random" onClick={(e) => randomCocktail(e)}>
+        Random Cocktail
+      </button>
       <div className="display">
-        {cocktailData === null ? (
-          <h2>No Cocktails found</h2>
+        {cocktailData ? (
+          cocktailData.map((data: [], i: number) => (
+            <div className="cocktail-card">
+              <Recipe
+                data={data}
+                key={i}
+                cocktailData={cocktailData}
+                onSubmitForm={onSubmitForm}
+                handleChange={handleChange}
+                setCocktailData={undefined}
+                userInput={undefined}
+                isLoading={false}
+                randomCocktail={randomCocktail}
+                id={i}
+              />
+            </div>
+          ))
         ) : (
-          cocktailData.map((data, i) => {
-            return (
-              <div className="cocktails" key={i}>
-                <h2>{data.strDrink}</h2>
-                <img src={data.strDrinkThumb} height="140" width="180" />
-                <div className="more-button">
-                  <button>More</button>
-                </div>
-              </div>
-            );
-          })
+          <p>No cocktails found</p>
         )}
       </div>
     </>
