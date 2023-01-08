@@ -1,0 +1,21 @@
+.type {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+.type p {
+  flex-direction: row;
+  align-content: center;
+}
+
+img {
+  margin-bottom: 20px;
+}
+
+.drink-name {
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+}
