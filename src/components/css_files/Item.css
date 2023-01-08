@@ -1,0 +1,43 @@
+#modal-button {
+  transition: translate ease-in-out 100ms, box-shadow ease-in-out 100ms;
+}
+
+#modal-button:hover,
+#modal-button:focus {
+  translate: 0 -5px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.modal-body p {
+  text-align: left;
+  width: 400px;
+  max-width: 400px;
+}
+
+ul {
+  /* list-style-type: none; */
+  margin: 0px 0px 20px 15px;
+  padding: 0px 0px 0px 0px;
+}
+
+li {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+@media (max-width: 425px) {
+  .modal-body {
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+  .modal-body p {
+    width: 380px;
+  }
+}
