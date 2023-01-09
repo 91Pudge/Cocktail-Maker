@@ -1,17 +1,8 @@
 import "./css_files/Recipe.css";
 import Item from "./Item";
-import { Props, Drinks } from "../types";
-import { FormEvent, ChangeEvent } from "react";
+import { IRecipe } from "../types";
 
-const Recipe = ({
-  data,
-  cocktailData,
-  onSubmitForm,
-  handleChange,
-  randomCocktail,
-  userInput,
-  setCocktailData
-}: Drinks) => {
+const Recipe = ({ data, cocktailData }: IRecipe) => {
   return (
     <div className="item">
       <div className="info">
@@ -26,18 +17,7 @@ const Recipe = ({
           width="400px"
         />
       </div>
-      <Item
-        id={data.idDrink}
-        cocktailData={cocktailData}
-        onSubmitForm={onSubmitForm}
-        handleChange={handleChange}
-        setCocktailData={setCocktailData}
-        userInput={userInput}
-        // isLoading={false}
-        randomCocktail={randomCocktail}
-        data={data}
-        strDrink={""}
-      />
+      <Item id={data.idDrink} cocktailData={cocktailData} />
     </div>
   );
 };
