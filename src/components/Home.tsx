@@ -1,13 +1,13 @@
+import { HomeProps } from "../types";
 import "./css_files/Home.css";
 import Recipe from "./Recipe";
-import { Props } from "../types";
 
 const Home = ({
   onSubmitForm,
   handleChange,
   cocktailData,
   randomCocktail
-}: Props) => {
+}: HomeProps) => {
   return (
     <>
       <form id="form" role="search" onSubmit={onSubmitForm}>
@@ -27,20 +27,9 @@ const Home = ({
       </button>
       <div className="display">
         {cocktailData ? (
-          cocktailData.map((data: [], i: number) => (
-            <div className="cocktail-card">
-              <Recipe
-                data={data}
-                key={i}
-                cocktailData={cocktailData}
-                onSubmitForm={onSubmitForm}
-                handleChange={handleChange}
-                setCocktailData={undefined}
-                userInput={undefined}
-                isLoading={false}
-                randomCocktail={randomCocktail}
-                id={i}
-              />
+          cocktailData.map((data: any[], i: number) => (
+            <div className="cocktail-card" key={i}>
+              <Recipe data={data} cocktailData={cocktailData} id={i} />
             </div>
           ))
         ) : (
