@@ -10,21 +10,23 @@ const Home = ({
 }: HomeProps) => {
   return (
     <>
-      <form id="form" role="search" onSubmit={onSubmitForm}>
-        <input
-          onChange={(e) => handleChange(e)}
-          type="text"
-          id="search"
-          className="search-bar"
-          placeholder="Search for any cocktail.."
-          aria-label="Search through site content"
-          required
-        />
-        <button>Search</button>
-      </form>
-      <button id="random" onClick={(e) => randomCocktail(e)}>
-        Random Cocktail
-      </button>
+      <div className="wrapper">
+        <form id="form" role="search" onSubmit={onSubmitForm}>
+          <input
+            onChange={(e) => handleChange(e)}
+            type="search"
+            id="search"
+            className="search-bar"
+            placeholder="Search for any cocktail.."
+            aria-label="Search through site content"
+            required
+          />
+          <button>Search</button>
+        </form>
+        <button id="random" onClick={(e) => randomCocktail(e)}>
+          Random Cocktail
+        </button>
+      </div>
       <div className="display">
         {cocktailData ? (
           cocktailData.map((data: any[], i: number) => (
