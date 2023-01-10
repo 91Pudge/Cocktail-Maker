@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 const App = () => {
   const [cocktailData, setCocktailData] = useState<any[]>([]);
   const [userInput, setUserInput] = useState("");
-  const [isLoading, setLoading] = useState<boolean>(false);
+  // const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
@@ -18,10 +18,10 @@ const App = () => {
       const choice = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
       );
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
+      // setLoading(true);
+      // setTimeout(() => {
+      //   setLoading(false);
+      // }, 3000);
       const parseRes = await choice.json();
       setCocktailData(parseRes.drinks);
     } catch (err) {
@@ -34,10 +34,10 @@ const App = () => {
       const random = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/random.php"
       );
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
+      // setLoading(true);
+      // setTimeout(() => {
+      //   setLoading(false);
+      // }, 3000);
 
       const parseRes = await random.json();
       setCocktailData(parseRes.drinks);

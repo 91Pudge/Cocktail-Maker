@@ -1,5 +1,5 @@
 import "./css_files/Item.css";
-import { Drinks, Props } from "../types";
+import { Props } from "../types";
 
 const Item = ({ id, cocktailData }: Props) => {
   const profile = cocktailData.filter((profile: any) => profile.idDrink === id);
