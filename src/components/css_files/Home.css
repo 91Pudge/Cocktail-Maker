@@ -4,13 +4,6 @@ body {
 
 #form {
   margin-top: 100px;
-  display: flex;
-  justify-content: center;
-}
-
-#form button {
-  background-color: antiquewhite;
-  border-radius: 5px;
 }
 
 .display {
@@ -18,12 +11,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
-  gap: 2px;
+  gap: 4px;
 }
 
-.cocktails {
+.wrapper {
   text-align: center;
-  flex: 0 0 45%;
 }
 
 img {
@@ -33,7 +25,17 @@ img {
 
 @media (max-width: 600px) {
   .display {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .display {
+    width: 390px;
+    /* display: flex;
+    flex-wrap: wrap; */
   }
 }
 
@@ -42,8 +44,21 @@ h2 {
   color: white;
 }
 
-.more-button button {
+#search,
+#form button,
+button {
   background-color: black;
   color: white;
+  margin-left: 1px;
+}
+
+.cocktail-card {
   border-radius: 10px;
+  background-color: black;
+}
+
+.modal-picture {
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
 }
