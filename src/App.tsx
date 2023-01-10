@@ -3,16 +3,10 @@ import { useState, ChangeEvent } from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Props } from "./types";
-
-export interface User {
-  userInput?: string;
-  isLoading: boolean;
-}
 
 const App = () => {
-  const [cocktailData, setCocktailData] = useState<[]>([]);
-  const [userInput, setUserInput] = useState<string | null>("");
+  const [cocktailData, setCocktailData] = useState<any[]>([]);
+  const [userInput, setUserInput] = useState("");
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,9 +29,7 @@ const App = () => {
     }
   };
 
-  const randomCocktail = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const randomCocktail = async () => {
     try {
       const random = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/random.php"
@@ -66,10 +58,9 @@ const App = () => {
               cocktailData={cocktailData}
               userInput={setUserInput}
               setCocktailData={setCocktailData}
-              isLoading={isLoading}
               randomCocktail={randomCocktail}
-              data={undefined}
               id={0}
+              data={[]}
             />
           }
         ></Route>
