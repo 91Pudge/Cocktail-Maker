@@ -23,19 +23,12 @@ img {
   border-radius: 10px;
 }
 
-@media (max-width: 600px) {
-  .display {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@media (max-width: 768px) {
+  .cocktail-card {
+    width: 90%;
   }
-}
-
-@media (max-width: 425px) {
-  .display {
-    width: 390px;
-    /* display: flex;
-    flex-wrap: wrap; */
+  img {
+    width: 100%;
   }
 }
 
