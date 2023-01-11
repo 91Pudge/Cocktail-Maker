@@ -47,4 +47,5 @@ export type HomeProps = {
     ) => void;
     id: number;
     data: any[];
+    isLoading: boolean;
 };
