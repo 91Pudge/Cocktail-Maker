@@ -1,12 +1,14 @@
 import { HomeProps } from "../types";
 import "./css_files/Home.css";
 import Recipe from "./Recipe";
+import { Dna } from "react-loader-spinner";
 
 const Home = ({
   onSubmitForm,
   handleChange,
   cocktailData,
-  randomCocktail
+  randomCocktail,
+  isLoading
 }: HomeProps) => {
   return (
     <>
@@ -28,7 +30,16 @@ const Home = ({
         </button>
       </div>
       <div className="display">
-        {cocktailData ? (
+        {isLoading ? (
+          <Dna
+            visible={true}
+            height="300"
+            width="300"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        ) : cocktailData ? (
           cocktailData.map((data: any[], i: number) => (
             <div className="cocktail-card" key={i}>
               <Recipe data={data} cocktailData={cocktailData} id={i} />
