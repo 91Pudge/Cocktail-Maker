@@ -21,7 +21,6 @@
 }
 
 ul {
-  /* list-style-type: none; */
   margin: 0px 0px 20px 15px;
   padding: 0px 0px 0px 0px;
 }
@@ -31,7 +30,7 @@ li {
   padding: 0px 0px 0px 0px;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 768px) {
   .modal-dialog {
     padding: 20px;
     width: 90%;
@@ -45,7 +44,6 @@ li {
   #modal-button:hover,
   #modal-button:focus {
     translate: 0 -5px;
-    /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2); */
   }
 }
 
@@ -53,6 +51,7 @@ li {
   .modal-dialog {
     padding: 20px;
     width: 90%;
+    margin: 5%;
   }
   .modal-body p {
     max-width: 70%;
