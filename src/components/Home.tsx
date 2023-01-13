@@ -1,4 +1,4 @@
-import { HomeProps, Props } from "../types";
+import { HomeProps } from "../types";
 import "./css_files/Home.css";
 import Recipe from "./Recipe";
 import { Dna } from "react-loader-spinner";
