@@ -1,4 +1,4 @@
-import { HomeProps } from "../types";
+import { HomeProps, Props } from "../types";
 import "./css_files/Home.css";
 import Recipe from "./Recipe";
 import { Dna } from "react-loader-spinner";
@@ -16,18 +16,21 @@ const Home = ({
         <form id="form" role="search" onSubmit={onSubmitForm}>
           <input
             onChange={(e) => handleChange(e)}
-            type="search"
+            type="text"
             id="search"
             className="search-bar"
             placeholder="Search for any cocktail.."
             aria-label="Search through site content"
             required
           />
-          <button>Search</button>
+          <button>
+            {" "}
+            <span className="material-symbols-outlined">search</span>
+          </button>
         </form>
-        <button id="random" onClick={(e) => randomCocktail(e)}>
-          Random Cocktail
-        </button>
+      </div>
+      <div id="random">
+        <button onClick={(e) => randomCocktail(e)}>Random Cocktail</button>
       </div>
       <div className="display">
         {isLoading ? (
